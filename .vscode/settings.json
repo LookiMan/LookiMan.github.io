@@ -1,0 +1,12 @@
+{
+  "compile-hero.disable-compile-files-on-did-save-code": true,
+
+  "filewatcher.commands": [
+    {
+      "match": "\\.*.scss",
+      "isAsync": true,
+      "cmd": "sass ${workspaceRoot}\\assets\\scss\\style.scss ${workspaceRoot}\\assets\\css\\style.css --no-source-map",
+      "event": "onFileChange"
+    }
+  ]
+}
