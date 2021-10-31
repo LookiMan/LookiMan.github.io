@@ -1,48 +1,109 @@
+"use strict"
 
 
+function linkedInClickHandler(event) {
+    event.preventDefault();
 
-function clickHandlerForAsideDotNav(targetElement) {
-    const nodeList = $('ul#aside-dotnav.uk-dotnav > li');
+    if (confirm("Are you sure you want to visit LinkedIn profile?")) {
+        document.location.href = event.currentTarget.href;
+    }
+}
 
-    $.each(nodeList, function (index) {
-        let element = nodeList[index];
 
-        if ($(element).hasClass("uk-active")) {
-            $(element).removeClass("uk-active");
-        }
-    });
-    
-    console.log(targetElement)
-    $(targetElement.originalTarget.parentElement).addClass("uk-active");
-} 
+function copyDataToClipboard(data) {
+    var $tmp = $("<input>");
+    $("body").append($tmp);
+    $tmp.val(data).select();
+    document.execCommand("copy");
+    $tmp.remove();
+
+}
 
 
 function copyUrlAddresToClipboard() {
-    var $tmp = $('<input>');
-    $('body').append($tmp);
-    $tmp.val(document.location).select();
-    document.execCommand('copy');
-    $tmp.remove();
-
-    UIkit.notification('<i class="fas fa-check"></i> Url address copied to clipboard!', {status: 'success', 'pos': 'bottom-center'});
+    copyDataToClipboard(document.location);
+    UIkit.notification("<i class=\"fas fa-check\"></i> URL address copied to clipboard", {status: "success", "pos": "bottom-center"});
 }   
 
 
-$(document).ready(function () {
-    const nodeList = $('ul#aside-dotnav.uk-dotnav > li');
+function copyEmailToClipboard() {
+    copyDataToClipboard("public_email_vlc@ukr.net");
+    UIkit.notification("<i class=\"fas fa-check\"></i> Email copied to clipboard", {status: "success", "pos": "bottom-center"});
+}   
 
-    $.each(nodeList, function (index) {
-        nodeList[index].addEventListener('click', clickHandlerForAsideDotNav);
+
+function scrollspy(event) {
+    event.preventDefault();
+
+    const scrollHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+    );
+
+    const sections = {
+        0: '#particles-js-section',
+        1: '#skills',
+        2: '#programming-languages-used',
+        3: '#top-frameworks-and-libraries',
+        4: '#top-projects',
+        5: '#download-curriculum-vitae',
+    }
+
+    let sectionSize = scrollHeight / 7;
+    let sectionIndex = Math.round(window.pageYOffset / sectionSize);
+
+    let liNodeList = $("ul.navigation-tabs > li.uk-active");
+    $.each(liNodeList, (index) => {
+        $(liNodeList[index]).removeClass("uk-active");
     });
 
-    $('#urlLink').click(copyUrlAddresToClipboard)
+    let linskNodeList = $(`ul.navigation-tabs > li > a[href=\"${sections[sectionIndex]}\"]`);
+    $.each(linskNodeList, (index) => {
+        $(linskNodeList[index].parentElement).addClass("uk-active");
+    });
 
-    $('.bettaRibbon').marquee({
+}
+
+
+function startMarquee() {
+    $(".bettaRibbon").marquee({
         duration: 7000,
         gap: 150,
         delayBeforeStart: 0,
         startVisible: true,
         duplicated: true
     });
+}
 
+
+function init() {
+    $("#urlLink").on("click", copyUrlAddresToClipboard);
+    $("#email").on("click", copyEmailToClipboard);
+    $("#linkedInProfile").on("click", linkedInClickHandler);
+    $(window).on("scroll", scrollspy);
+
+    $("a[href^=\"#\"]").on("click", function () {
+        let href = $(this).attr("href");
+        let nodeList = $("ul#aside-dotnav.uk-dotnav > li.uk-active");
+
+        if (href != "#") {
+            $("html, body").animate({
+                scrollTop: $(href).offset().top - 70
+            });
+
+            $.each(nodeList, (index) => {
+                $(nodeList[index]).removeClass("uk-active");
+            });
+
+            $(this.parentElement).addClass("uk-active");
+        }
+    });
+
+    // startMarquee();
+}
+
+
+$(document).ready(() => {
+    init();
 });
