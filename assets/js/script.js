@@ -4,9 +4,12 @@
 function linkedInClickHandler(event) {
     event.preventDefault();
 
-    if (confirm("Are you sure you want to visit LinkedIn profile?")) {
-        document.location.href = event.currentTarget.href;
-    }
+    UIkit.modal.confirm("Are you sure you want to visit LinkedIn profile?").then(
+        () => {
+            document.location.href = event.currentTarget.href;
+        },
+    );
+
 }
 
 
@@ -22,13 +25,13 @@ function copyDataToClipboard(data) {
 
 function copyUrlAddresToClipboard() {
     copyDataToClipboard(document.location);
-    UIkit.notification("<i class=\"fas fa-check\"></i> URL address copied to clipboard", {status: "success", "pos": "bottom-center"});
+    UIkit.notification("<i class=\"fas fa-check\"></i> URL address copied to clipboard", {status: "success", "pos": "top-center"});
 }   
 
 
 function copyEmailToClipboard() {
     copyDataToClipboard("public_email_vlc@ukr.net");
-    UIkit.notification("<i class=\"fas fa-check\"></i> Email copied to clipboard", {status: "success", "pos": "bottom-center"});
+    UIkit.notification("<i class=\"fas fa-check\"></i> Email copied to clipboard", {status: "success", "pos": "top-center"});
 }   
 
 
@@ -66,17 +69,6 @@ function scrollspy(event) {
 }
 
 
-function startMarquee() {
-    $(".bettaRibbon").marquee({
-        duration: 7000,
-        gap: 150,
-        delayBeforeStart: 0,
-        startVisible: true,
-        duplicated: true
-    });
-}
-
-
 function init() {
     $("#urlLink").on("click", copyUrlAddresToClipboard);
     $("#email").on("click", copyEmailToClipboard);
@@ -99,8 +91,6 @@ function init() {
             $(this.parentElement).addClass("uk-active");
         }
     });
-
-    // startMarquee();
 }
 
 

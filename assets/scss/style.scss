@@ -57,7 +57,7 @@ body {
 		top: calc(50% - 66px);
 		right: 0;
 		left: 20px;
-		z-index: 1030;
+		z-index: 1001;
 		width: 10px;
 		/* vertical aligin */
 		flex-direction: column;
@@ -92,7 +92,7 @@ body {
 		position: fixed;
 		top: calc(30px - 5px);
 		left: calc(50% - 66px);
-		z-index: 1030;
+		z-index: 1001;
 
 		li {
 			flex: none;
@@ -102,6 +102,8 @@ body {
 }
 
 header {
+	z-index: 1001 !important;
+
 	.linkedIn-avatar-conteiner {
 		display: flex;
 		position: absolute;
@@ -155,25 +157,8 @@ canvas {
 	vertical-align: bottom;
 }
 
-.bettaRibbon {
-	overflow: hidden;
-	left: -40px;
-	position: fixed;
-	top: 40px;
-	height: 30px;
-	width: 206px;
-	text-align: center;
-	transform: rotate(-45deg);
-	background-color: #dfff00;
-	z-index: 1031;
-
-	span {
-		font-size: 19px;
-	}
-}
-
 #toTopButton {
-	z-index: 1030;
+	z-index: 1000;
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
@@ -185,8 +170,8 @@ canvas {
 }
 
 #aside-dotnav > li > a {
-	width: 12px;
-	height: 12px;
+	width: 13px;
+	height: 13px;
 }
 
 /* ---- stats.js ---- */
@@ -220,13 +205,14 @@ canvas {
 	min-height: 60px;
 }
 
+.uk-offcanvas {
+	z-index: 1000 !important;
+}
+
 .uk-card-body {
 	display: flex;
 	justify-content: center;
 	padding: 15px 30px !important;
-}
-
-#programming-languages-sortable {
 }
 
 .python-cart {
@@ -238,6 +224,9 @@ canvas {
 
 .js-cart {
 	background-color: #f7df1e;
+	-webkit-background-image: linear-gradient(135deg, #f7df1e, #dbc51b);
+	-moz-background-image: linear-gradient(135deg, #f7df1e, #dbc51b);
+	background-image: linear-gradient(135deg, #f7df1e, #dbc51b);
 }
 
 .html-cart {
@@ -249,15 +238,16 @@ canvas {
 
 .css-cart {
 	background-color: #2ea7d9;
+	background: -webkit-linear-gradient(135deg, #2ea7d9, #005bea);
+	background: -moz-linear-gradient(135deg, #2ea7d9, #005bea);
 	background: linear-gradient(135deg, #2ea7d9, #005bea);
 }
 
 .sass-cart {
 	background-color: #cd6799;
-}
-
-.php-cart {
-	background-color: #7377ad;
+	background-color: -webkit-linear-gradient(135deg, #cd6799, #b55b86);
+	background-color: -moz-linear-gradient(135deg, #cd6799, #b55b86);
+	background-color: linear-gradient(135deg, #cd6799, #b55b86);
 }
 
 .django-flask-card {
@@ -339,7 +329,7 @@ canvas {
 	justify-content: center;
 }
 
-.Button {
+.cv-button {
 	background: 4px solid white;
 	border: none;
 	display: inline-block;
@@ -349,7 +339,7 @@ canvas {
 	position: relative;
 }
 
-.Button,
+.cv-button,
 svg {
 	cursor: pointer;
 	font-family: "Roboto";

@@ -6,19 +6,26 @@
 		<meta name="description" content="cv">
 		<meta name="author" content="Vlad Lookianhyk">
 		<title>Landing page</title>
-		
+
+		<meta property="og:image" content=".assets/images/preview.png">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="256">
+		<meta property="og:image:height" content="256">
+		<meta property="og:title" content="Landing page">
+		<meta property="og:page_url" content="https://lookiman.github.io">
+		<meta property="og:description" content="Lookianсhyk Vlad CV">
+
+		<meta name="theme-color" content="#ffffff">
+
 		<!-- Bootstrap CSS -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-		<!-- JavaScript Bundle with Popper -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-			crossorigin="anonymous"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 		<!-- jQuery-->
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"
 			integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js"></script>
 
 		<!-- main javascript -->
 		<script type="text/javascript" src="./assets/js/script.js" crossorigin="anonymous"></script>
@@ -39,19 +46,13 @@
 		<script src="https://kit.fontawesome.com/f8dc58df69.js" crossorigin="anonymous"></script>
 
 		<!-- Favicon -->
-		<link rel="icon" href="./assets/images/favicon.svg">
-		<meta name="theme-color" content="#ffffff">
+		<link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/x-icon">
 		
 		<!-- Style CSS -->
 		<link href="./assets/css/style.css" rel="stylesheet">
 	</head>
 
 	<body>
-
-		<div class="bettaRibbon d-none">
-			<span class="marquee">BETA</span>
-		</div>
-
 		<header class="fixed-top">
 			<nav class="uk-navbar uk-navbar-container uk-margin uk-box-shadow-large">
 				<div class="uk-navbar-left">
@@ -199,7 +200,7 @@
 
 				<h3>Programming languages used in projects</h3>
 
-				<ul id="programming-languages-sortable" class="uk-grid-small" uk-sortable="handle: .uk-card" uk-grid>
+				<ul class="uk-grid-small" uk-grid>
 					<li class="uk-width-1-2 uk-width-1-2@s uk-width-1-4@m">
 						<div class="uk-card uk-card-body uk-text-center uk-box-shadow-large python-cart">
 							<h3>Python</h3>
@@ -210,24 +211,19 @@
 							<h3>JavaScript</h3>
 						</div>
 					</li>
-					<li class="uk-width-1-4 uk-width-1-3@s uk-width-1-6@m">
+					<li class="uk-width-1-3 uk-width-1-3@s uk-width-1-6@m">
 						<div class="uk-card uk-card-body uk-text-center uk-box-shadow-large html-cart">
 							<h3>HTML</h3>
 						</div>
 					</li>
-					<li class="uk-width-1-4 uk-width-1-3@s uk-width-1-6@m">
+					<li class="uk-width-1-3 uk-width-1-3@s uk-width-1-6@m">
 						<div class="uk-card uk-card-body uk-text-center uk-box-shadow-large css-cart">
 							<h3>CSS</h3>
 						</div>
 					</li>
-					<li class="uk-width-1-4 uk-width-1-3@s uk-width-1-6@m">
+					<li class="uk-width-1-3 uk-width-1-3@s uk-width-1-6@m">
 						<div class="uk-card uk-card-body uk-text-center uk-box-shadow-large sass-cart">
 							<h3>Sass</h3>
-						</div>
-					</li>
-					<li class="uk-width-1-4 uk-width-1-3@s uk-width-1-6@m">
-						<div class="uk-card uk-card-body uk-text-center uk-box-shadow-large php-cart">
-							<h3>PHP</h3>
 						</div>
 					</li>
 				</ul>
@@ -328,7 +324,7 @@
 				<h3>More details in CV</h3>
 				
 				<div class="d-flex justify-content-center">
-					<a type="button" href="./assets/docx/Lookianсhyk Vlad CV.docx" class="Button js-button">
+					<a type="button" href="./assets/docx/Lookianсhyk Vlad CV.docx" class="cv-button js-button">
 						DOWNLOAD
 					</a>
 				</div>
